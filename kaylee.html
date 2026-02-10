@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Kaylee 💜</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-deep: #2d1b4e;
+      --purple-mid: #5b3a8c;
+      --purple-soft: #8b6bb8;
+      --purple-pale: #c9b8e0;
+      --purple-cream: #e8e0f0;
+      --lily-white: #faf5ff;
+      --gold: #d4a853;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(165deg, var(--purple-deep) 0%, var(--purple-mid) 35%, #3d2863 70%, var(--purple-deep) 100%);
+      min-height: 100vh;
+      color: var(--lily-white);
+      overflow-x: hidden;
+    }
+
+    /* Lily petal floating background */
+    .petals {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .petal {
+      position: absolute;
+      width: 12px;
+      height: 18px;
+      background: linear-gradient(135deg, var(--purple-pale), var(--purple-cream));
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      opacity: 0.4;
+      animation: float 15s ease-in-out infinite;
+    }
+
+    .petal:nth-child(1) { left: 10%; animation-delay: 0s; transform: rotate(20deg); }
+    .petal:nth-child(2) { left: 25%; animation-delay: -3s; transform: rotate(-15deg); }
+    .petal:nth-child(3) { left: 40%; animation-delay: -6s; transform: rotate(10deg); }
+    .petal:nth-child(4) { left: 60%; animation-delay: -2s; transform: rotate(-8deg); }
+    .petal:nth-child(5) { left: 75%; animation-delay: -9s; transform: rotate(25deg); }
+    .petal:nth-child(6) { left: 90%; animation-delay: -4s; transform: rotate(-20deg); }
+    .petal:nth-child(7) { left: 15%; top: 40%; animation-delay: -7s; }
+    .petal:nth-child(8) { left: 85%; top: 30%; animation-delay: -1s; }
+    .petal:nth-child(9) { left: 50%; top: 80%; animation-delay: -5s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
+      50% { transform: translateY(-30px) translateX(10px) rotate(10deg); opacity: 0.6; }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      animation: fadeDown 1s ease-out;
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--purple-cream);
+      text-shadow: 0 0 40px rgba(201, 184, 224, 0.3);
+    }
+
+    .lily-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .lily-divider span {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    /* Photo gallery */
+    .gallery-section {
+      margin: 3rem 0;
+      animation: fadeUp 1s ease-out 0.2s both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .gallery-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--purple-pale);
+    }
+
+    .gallery {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 0.5rem 0 1rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .gallery::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .gallery::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+    }
+
+    .gallery::-webkit-scrollbar-thumb {
+      background: var(--purple-soft);
+      border-radius: 3px;
+    }
+
+    .gallery img {
+      flex: 0 0 180px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 16px;
+      scroll-snap-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      border: 2px solid rgba(255,255,255,0.15);
+    }
+
+    /* Labubu section */
+    .labubu-section {
+      text-align: center;
+      margin: 3rem 0;
+      animation: fadeUp 1s ease-out 0.4s both;
+    }
+
+    .labubu-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      color: var(--purple-pale);
+    }
+
+    .labubu-img-wrap {
+      display: inline-block;
+      padding: 1rem;
+      background: rgba(255,255,255,0.08);
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .labubu-section img {
+      max-width: 100%;
+      width: 280px;
+      height: auto;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .labubu-section p {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    /* Question section */
+    .question-section {
+      text-align: center;
+      padding: 3rem 1rem 4rem;
+      animation: fadeUp 1s ease-out 0.6s both;
+    }
+
+    .question-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 400;
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+      color: var(--lily-white);
+    }
+
+    .question-section .sub {
+      font-size: 1rem;
+      color: var(--purple-pale);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-yes {
+      background: linear-gradient(135deg, var(--purple-soft), var(--purple-mid));
+      color: var(--lily-white);
+      box-shadow: 0 4px 24px rgba(139, 107, 184, 0.5);
+    }
+
+    .btn-yes:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 32px rgba(139, 107, 184, 0.6);
+    }
+
+    .btn-no {
+      background: rgba(255,255,255,0.15);
+      color: var(--purple-cream);
+      border: 1px solid rgba(255,255,255,0.25);
+      position: relative;
+    }
+
+    .btn-no:hover {
+      transform: scale(1.02);
+    }
+
+    /* Yes clicked state */
+    .answer-reveal {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      animation: fadeUp 0.8s ease-out;
+    }
+
+    .answer-reveal.show {
+      display: block;
+    }
+
+    .answer-reveal h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .answer-reveal p {
+      color: var(--purple-pale);
+      font-size: 1.05rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+      color: var(--purple-pale);
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="petals">
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+  </div>
+
+  <div class="container">
+    <header>
+      <h1>For Kaylee</h1>
+      <div class="lily-divider">
+        <span>🌸</span><span>💜</span><span>🌸</span>
+      </div>
+    </header>
+
+    <section class="gallery-section">
+      <h2>my favorite photos of you</h2>
+      <div class="gallery">
+        <img src="images/kaylee-1.png" alt="Kaylee">
+        <img src="images/kaylee-2.png" alt="Kaylee">
+        <img src="images/kaylee-3.png" alt="Kaylee">
+        <img src="images/kaylee-4.png" alt="Kaylee">
+        <img src="images/kaylee-5.png" alt="Kaylee">
+      </div>
+    </section>
+
+    <section class="labubu-section">
+      <h2>Your favorite: LaBronBron!</h2>
+      <div class="labubu-img-wrap">
+        <img src="https://myship.7-11.com.tw/i/cgdm/GM2510025973768/2510020838109834.jpg" alt="Labubu">
+      </div>
+      <p>Like LeBron, you make me happier every day.</p>
+    </section>
+
+    <section class="question-section">
+      <div id="question-block">
+        <h2>Kaylee, will you be my Valentine?</h2>
+        <div class="buttons">
+          <button type="button" class="btn btn-yes" id="btn-yes">Yes!</button>
+          <button type="button" class="btn btn-no" id="btn-no">Hmm...</button>
+        </div>
+      </div>
+      <div class="answer-reveal" id="answer-reveal">
+        <h3>💜 Yes! 💜</h3>
+        <p>Happy Valentine's, Kaylee.</p>
+      </div>
+    </section>
+
+    <footer>
+      Made with love 💜
+    </footer>
+  </div>
+
+  <script>
+    const btnYes = document.getElementById('btn-yes');
+    const btnNo = document.getElementById('btn-no');
+    const questionBlock = document.getElementById('question-block');
+    const answerReveal = document.getElementById('answer-reveal');
+
+    let noClicks = 0;
+
+    btnYes.addEventListener('click', function () {
+      questionBlock.style.display = 'none';
+      answerReveal.classList.add('show');
+    });
+
+    btnNo.addEventListener('click', function () {
+      noClicks++;
+      if (noClicks === 1) {
+        btnNo.textContent = 'Maybe...?';
+      } else if (noClicks === 2) {
+        btnNo.textContent = 'Sure?';
+      } else if (noClicks >= 3) {
+        btnNo.textContent = 'Okay yes 💜';
+        btnNo.classList.add('btn-yes');
+        btnNo.classList.remove('btn-no');
+        btnNo.addEventListener('click', function () {
+          questionBlock.style.display = 'none';
+          answerReveal.classList.add('show');
+        }, { once: true });
+      }
+      // Slight nudge so the "No" button moves a bit
+      const angle = noClicks * 15;
+      btnNo.style.transform = `rotate(${angle}deg) scale(1.02)`;
+      setTimeout(function () {
+        btnNo.style.transform = '';
+      }, 200);
+    });
+  </script>
+</body>
+</html>
